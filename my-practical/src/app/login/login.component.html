@@ -1,0 +1,37 @@
+<div class="card mt-5 m-auto" style="width: 35rem;">
+    <div class="card-header">
+       Login
+    </div>
+    <div class="card-body">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" placeholder="Email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': isSubmited && f['email'].errors }"/>
+                <div *ngIf="isSubmited && f['email'].errors" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors['required']">Email is required</div>
+                    <div *ngIf="f['email'].errors['pattern']">Email should be valid</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" [ngClass]="{'is-invalid': isSubmited && f['password'].errors}"
+                    class="form-control" formControlName="password" id="exampleInputPassword1" placeholder="password">
+                <div *ngIf="isSubmited && f['password'].errors" class="invalid-feedback">
+                    <div *ngIf="isSubmited && f['password'].errors['required']">
+                        password is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="organizationUrl">Organization URL</label>
+                <input type="text" placeholder="Organization URL" formControlName="organizationUrl" class="form-control" [ngClass]="{ 'is-invalid': isSubmited && f['organizationUrl'].errors }"/>
+                <div *ngIf="isSubmited && f['organizationUrl'].errors" class="invalid-feedback">
+                    <div *ngIf="f['organizationUrl'].errors['required']">Organization URL is required</div>
+                    <div *ngIf="f['organizationUrl'].errors['pattern']">Organization URL should be valid</div>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </form>
+    </div>
+</div>

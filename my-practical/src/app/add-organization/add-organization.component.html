@@ -1,0 +1,46 @@
+
+<div class="card mt-5 m-auto" style="width: 35rem;">
+    <div class="card-header">
+        Add Organization
+    </div>
+    <div class="card-body">
+        <form [formGroup]="organizationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="organizationName">Organization Name</label>
+                <input type="text" placeholder="organization Name" formControlName="organizationName"
+                    class="form-control" [ngClass]="{ 'is-invalid': isSubmited && f['organizationName'].errors }" />
+                <div *ngIf="isSubmited && f['organizationName'].errors" class="invalid-feedback">
+                    <div *ngIf="f['organizationName'].errors['required']">Organization Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="organizationShortName">Organization Short Name</label>
+                <input type="text" placeholder="Organization Short Name" formControlName="organizationShortName"
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': isSubmited && f['organizationShortName'].errors }" />
+                <div *ngIf="isSubmited && f['organizationShortName'].errors" class="invalid-feedback">
+                    <div *ngIf="f['organizationShortName'].errors['required']">Organization ShortName is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="organizationUrl">Organization Url </label>
+                <input type="text" placeholder="Enter Organization Url" formControlName="organizationUrl" class="form-control"
+                    [ngClass]="{ 'is-invalid': isSubmited && f['organizationUrl'].errors }" />
+                <div *ngIf="isSubmited && f['organizationUrl'].errors" class="invalid-feedback">
+                    <div *ngIf="f['organizationUrl'].errors['required']">Organization URL is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="logo">Logo</label>
+                <input type="text" placeholder="Logo" formControlName="logo" class="form-control"
+                    [ngClass]="{ 'is-invalid': isSubmited && f['logo'].errors }" />
+                <div *ngIf="isSubmited && f['logo'].errors" class="invalid-feedback">
+                    <div *ngIf="f['logo'].errors['required']">Logo is required</div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-secondary  mt-2">Save</button>
+            <button type="button" (click)="onCancelClick()" class="btn btn-secondary  mt-2 ms-2">Cancel</button>
+        </form>
+    </div>
+</div>
